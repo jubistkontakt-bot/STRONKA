@@ -2,7 +2,8 @@
 var BRAND = "Autofilm"; // nazwa marki (pokazuje się na każdej podstronie)
 var LINKS = {
   "buy-autofilm": "#", // link do Gumroad: Autofilm (subskrypcja)
-  "buy-silence": "#"   // link do Gumroad: wtyczka do usuwania ciszy
+  "buy-silence": "#",  // link do Gumroad: wtyczka do usuwania ciszy
+  "buy-whisper": "#"   // link do Gumroad: wtyczka Whisper (napisy)
 };
 // ==========================
 var PAGES = [
