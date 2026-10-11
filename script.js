@@ -1,5 +1,5 @@
 // ====== TU EDYTUJESZ ======
-var BRAND = "Twoja Marka"; // nazwa marki (pokazuje się na każdej podstronie)
+var BRAND = "Autofilm"; // nazwa marki (pokazuje się na każdej podstronie)
 var LINKS = {
   "buy-autofilm": "#", // link do Gumroad: Autofilm (subskrypcja)
   "buy-silence": "#"   // link do Gumroad: wtyczka do usuwania ciszy
