@@ -19,7 +19,7 @@ var nav = PAGES.map(function(p){
 function S(pl,en){return '<span data-pl>'+pl+'</span><span data-en>'+en+'</span>';}
 var logo='<a class="brand" href="index.html"><i>'+BRAND.charAt(0)+'</i>'+BRAND.toUpperCase()+'<span class="sub">'+S("Filmy z tekstu<br>i wtyczki","Videos from text<br>and plugins")+'</span></a>';
 document.getElementById("top").innerHTML =
-  '<div class="wrap">'+logo+'<nav>'+nav+'</nav><div class="right"><div class="lang"><button id="pl">PL</button><button id="en">EN</button></div><a class="btn line" href="autofilm.html">'+S("Zobacz produkty","View products")+'</a></div></div>';
+  '<div class="wrap">'+logo+'<nav id="mainnav">'+nav+'</nav><div class="right"><div class="lang"><button id="pl">PL</button><button id="en">EN</button></div><a class="btn line" href="autofilm.html">'+S("Zobacz produkty","View products")+'</a><button class="burger" id="burger" aria-label="Menu" aria-expanded="false" aria-controls="mainnav">☰</button></div></div>';
 document.getElementById("foot").innerHTML = '<div class="wrap"><div class="fcols">'+
   '<div>'+logo+'<p style="margin-top:12px">'+S("Narzędzia do montażu i tworzenia filmów.","Tools for editing and creating videos.")+'</p></div>'+
   '<div><h4>'+S("Szybkie linki","Quick links")+'</h4><a href="index.html">'+S("Start","Home")+'</a><a href="autofilm.html">Autofilm</a><a href="wtyczki.html">'+S("Wtyczki","Plugins")+'</a><a href="faq.html">FAQ</a></div>'+
@@ -38,3 +38,8 @@ document.getElementById("pl").onclick=function(){setLang("pl")};
 document.getElementById("en").onclick=function(){setLang("en")};
 var s=null; try{s=localStorage.getItem("lang")}catch(e){}
 setLang(s || ((navigator.language||"").indexOf("pl")===0 ? "pl" : "en"));
+
+(function(){var b=document.getElementById("burger"),t=document.getElementById("top");
+if(!b)return;
+b.onclick=function(){var o=t.classList.toggle("open");b.setAttribute("aria-expanded",o);b.textContent=o?"✕":"☰";};
+})();
