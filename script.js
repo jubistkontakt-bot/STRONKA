@@ -17,9 +17,14 @@ var nav = PAGES.map(function(p){
   return '<a href="'+p[0]+'"'+(p[0]===here?' aria-current="page"':'')+'><span data-pl>'+p[1]+'</span><span data-en>'+p[2]+'</span></a>';
 }).join("");
 document.getElementById("top").innerHTML =
-  '<div class="wrap"><a class="brand" href="index.html"><i></i>'+BRAND+'</a><nav>'+nav+
+  '<div class="wrap"><a class="brand" href="index.html"><i>'+BRAND.charAt(0)+'</i>'+BRAND+'</a><nav>'+nav+
   '</nav><div class="lang"><button id="pl">PL</button><button id="en">EN</button></div></div>';
-document.getElementById("foot").innerHTML = '<div class="wrap">© 2026 '+BRAND+'</div>';
+function S(pl,en){return '<span data-pl>'+pl+'</span><span data-en>'+en+'</span>';}
+document.getElementById("foot").innerHTML = '<div class="wrap"><div class="fcols">'+
+  '<div><a class="brand" href="index.html"><i>'+BRAND.charAt(0)+'</i>'+BRAND+'</a><p>'+S("Narzędzia do montażu i tworzenia filmów.","Tools for editing and creating videos.")+'</p></div>'+
+  '<div><h4>'+S("Strony","Pages")+'</h4><a href="index.html">'+S("Start","Home")+'</a><a href="autofilm.html">Autofilm</a><a href="wtyczki.html">'+S("Wtyczki","Plugins")+'</a><a href="faq.html">FAQ</a></div>'+
+  '<div><h4>'+S("Produkty","Products")+'</h4><a href="autofilm.html">Autofilm</a><a href="wtyczki.html">Speech Cutter</a><a href="wtyczki.html">Whisper</a></div>'+
+  '</div><small>© 2026 '+BRAND+'</small></div>';
 for (var id in LINKS) { document.querySelectorAll("[data-link="+id+"]").forEach(function(e){e.href=LINKS[id];}); }
 function setLang(l){
   document.documentElement.classList.toggle("en", l==="en");
