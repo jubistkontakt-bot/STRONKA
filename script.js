@@ -16,14 +16,15 @@ var here = location.pathname.split("/").pop() || "index.html";
 var nav = PAGES.map(function(p){
   return '<a href="'+p[0]+'"'+(p[0]===here?' aria-current="page"':'')+'><span data-pl>'+p[1]+'</span><span data-en>'+p[2]+'</span></a>';
 }).join("");
-document.getElementById("top").innerHTML =
-  '<div class="wrap"><a class="brand" href="index.html"><i>'+BRAND.charAt(0)+'</i>'+BRAND+'</a><nav>'+nav+
-  '</nav><div class="lang"><button id="pl">PL</button><button id="en">EN</button></div></div>';
 function S(pl,en){return '<span data-pl>'+pl+'</span><span data-en>'+en+'</span>';}
+var logo='<a class="brand" href="index.html"><i>'+BRAND.charAt(0)+'</i>'+BRAND.toUpperCase()+'<span class="sub">'+S("Filmy z tekstu<br>i wtyczki","Videos from text<br>and plugins")+'</span></a>';
+document.getElementById("top").innerHTML =
+  '<div class="wrap">'+logo+'<nav>'+nav+'</nav><div class="right"><div class="lang"><button id="pl">PL</button><button id="en">EN</button></div><a class="btn line" href="autofilm.html">'+S("Zobacz produkty","View products")+'</a></div></div>';
 document.getElementById("foot").innerHTML = '<div class="wrap"><div class="fcols">'+
-  '<div><a class="brand" href="index.html"><i>'+BRAND.charAt(0)+'</i>'+BRAND+'</a><p>'+S("Narzędzia do montażu i tworzenia filmów.","Tools for editing and creating videos.")+'</p></div>'+
-  '<div><h4>'+S("Strony","Pages")+'</h4><a href="index.html">'+S("Start","Home")+'</a><a href="autofilm.html">Autofilm</a><a href="wtyczki.html">'+S("Wtyczki","Plugins")+'</a><a href="faq.html">FAQ</a></div>'+
+  '<div>'+logo+'<p style="margin-top:12px">'+S("Narzędzia do montażu i tworzenia filmów.","Tools for editing and creating videos.")+'</p></div>'+
+  '<div><h4>'+S("Szybkie linki","Quick links")+'</h4><a href="index.html">'+S("Start","Home")+'</a><a href="autofilm.html">Autofilm</a><a href="wtyczki.html">'+S("Wtyczki","Plugins")+'</a><a href="faq.html">FAQ</a></div>'+
   '<div><h4>'+S("Produkty","Products")+'</h4><a href="autofilm.html">Autofilm</a><a href="wtyczki.html">Speech Cutter</a><a href="wtyczki.html">Whisper</a></div>'+
+  '<div class="box"><h4>'+S("Kup na Gumroad","Buy on Gumroad")+'</h4><p>'+S("Płatność i pobranie plików odbywają się na Gumroad.","Payment and file download happen on Gumroad.")+'</p><a class="btn" href="autofilm.html">'+S("Zobacz produkty","View products")+'</a></div>'+
   '</div><small>© 2026 '+BRAND+'</small></div>';
 for (var id in LINKS) { document.querySelectorAll("[data-link="+id+"]").forEach(function(e){e.href=LINKS[id];}); }
 function setLang(l){
